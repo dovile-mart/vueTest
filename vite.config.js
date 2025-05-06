@@ -3,10 +3,16 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: 'https://github.com/dovile-mart/vueTest.git',
+  base: '/vueTest',
   plugins: [vue()],
   test: {
     globals: true,
     environment: 'jsdom',
+  },
+  server: {
+    cors: {
+      origin: ['https://dovile-mart.github.io'],
+      methods: 'GET,HEAD,PUT,PATCH,DELETE'
+    },
   },
 })
